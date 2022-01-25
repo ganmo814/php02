@@ -2,7 +2,7 @@
 //1.  DB接続します
 try {
   //Password:MAMP='root',XAMPP=''
-  $pdo = new PDO('mysql:dbname=gs_kadai_db;charset=utf8;host=localhost','root','root');
+  $pdo = new PDO('mysql:dbname=graypanda56_gs_kadai_db;charset=utf8;host=mysql57.graypanda56.sakura.ne.jp','graypanda56','zVy+JtYkT5Rm');
 } catch (PDOException $e) {
   exit('DBConnectError:'.$e->getMessage());
 }
