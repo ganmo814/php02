@@ -17,8 +17,8 @@ $stmt = $pdo->prepare(
   
   // バインド変数を用意
   $stmt->bindValue(':name', $name, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-  $stmt->bindValue(':url', $age, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-  $stmt->bindValue(':comment', $content, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+  $stmt->bindValue(':url', $url, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+  $stmt->bindValue(':comment', $comment, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
   $stmt->bindValue(':id', $id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
   
   // 実行
