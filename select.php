@@ -1,11 +1,28 @@
 <?php
+//SESSIONスタート
+session_start();
+
+//関数を呼び出す
+require_once('funcs.php');
+
+//LoginCheck
+loginCheck();
+
+//ユーザー管理
+$user_name = $_SESSION['name'];
+$kanri_flg = $_SESSION['kanri_flg'];//0が一般で1が管理者
+
 //1.  DB接続します
-try {
-  //Password:MAMP='root',XAMPP=''
-  $pdo = new PDO('mysql:dbname=graypanda56_gs_kadai_db;charset=utf8;host=mysql57.graypanda56.sakura.ne.jp','graypanda56','hgkyfm-ahksrrf7');
-} catch (PDOException $e) {
-  exit('DBConnectError:'.$e->getMessage());
-}
+// try {
+//   //Password:MAMP='root',XAMPP=''
+//   $pdo = new PDO('mysql:dbname=graypanda56_gs_kadai_db;charset=utf8;host=mysql57.graypanda56.sakura.ne.jp','graypanda56','hgkyfm-ahksrrf7');
+// } catch (PDOException $e) {
+//   exit('DBConnectError:'.$e->getMessage());
+// }
+
+//↑関数化
+require_once('funcs.php');
+$pdo = db_conn();
 
 //２．SQL文を用意(データ取得：SELECT)
 $stmt = $pdo->prepare("SELECT * FROM gs_bm_table");
@@ -57,6 +74,7 @@ if($status==false) {
       <div class="navbar-header">
       <a class="navbar-brand" href="index.php">お気に入りの本の登録</a>
       </div>
+      <p><?= $user_name ?></p>
     </div>
   </nav>
 </header>

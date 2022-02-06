@@ -8,13 +8,16 @@ $url = $_POST['url'];
 $comment = $_POST['comment'];
 
 // 2. DB接続します
-try {
-  //Password:MAMP='root',XAMPP=''
-  $pdo = new PDO('mysql:dbname=graypanda56_gs_kadai_db;charset=utf8;host=mysql57.graypanda56.sakura.ne.jp','graypanda56','hgkyfm-ahksrrf7');
-} catch (PDOException $e) {
-  exit('DBConnectError:'.$e->getMessage());
-}
+// try {
+//   //Password:MAMP='root',XAMPP=''
+//   $pdo = new PDO('mysql:dbname=graypanda56_gs_kadai_db;charset=utf8;host=mysql57.graypanda56.sakura.ne.jp','graypanda56','hgkyfm-ahksrrf7');
+// } catch (PDOException $e) {
+//   exit('DBConnectError:'.$e->getMessage());
+// }
 
+//↑関数化
+require_once('funcs.php');
+$pdo = db_conn();
 
 // ３．SQL文を用意(データ登録：INSERT)
 $stmt = $pdo->prepare(
